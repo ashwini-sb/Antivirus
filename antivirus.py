@@ -6,9 +6,7 @@ import time
 import json
 from datetime import datetime
 
-# ------------------------------------------------------------
-# Eagle Vision Theme Antivirus (Centered UI)
-# ------------------------------------------------------------
+
 class AntivirusGUI:
     def __init__(self, root):
         self.root = root
@@ -28,9 +26,6 @@ class AntivirusGUI:
 
         self.setup_ui()
 
-    # --------------------------------------------------------
-    # Build Eagle Vision Cyber UI (Centered Control Section)
-    # --------------------------------------------------------
     def setup_ui(self):
         # Title
         title_frame = tk.Frame(self.root, bg="#0a0f1f")
@@ -99,14 +94,14 @@ class AntivirusGUI:
 
         self.log("🦅 Eagle Vision Antivirus System Initialized Successfully.")
 
-    # --------------------------------------------------------
+   
     def log(self, message):
         timestamp = datetime.now().strftime("%H:%M:%S")
         self.log_text.insert(tk.END, f"[{timestamp}] {message}\n")
         self.log_text.see(tk.END)
         self.root.update_idletasks()
 
-    # --------------------------------------------------------
+    
     def select_and_scan(self):
         folder = filedialog.askdirectory(title="Select Folder to Scan")
         if not folder:
@@ -140,7 +135,7 @@ class AntivirusGUI:
         )
         self.log("✅ SCAN COMPLETED SUCCESSFULLY")
 
-    # --------------------------------------------------------
+
     def scan_file(self, file_path):
         try:
             with open(file_path, "rb") as f:
@@ -159,7 +154,7 @@ class AntivirusGUI:
             self.log(f"❌ ERROR scanning {file_path}: {e}")
             return False
 
-    # --------------------------------------------------------
+   
     def export_report(self):
         if not self.scanned_files:
             messagebox.showwarning("No Data", "Please run a scan before exporting a report.")
@@ -178,16 +173,14 @@ class AntivirusGUI:
         self.log("📁 Report exported as scan_report.json")
         messagebox.showinfo("Export Successful", "Report saved successfully!")
 
-    # --------------------------------------------------------
+    
     def clear_logs(self):
         self.log_text.delete(1.0, tk.END)
         self.stats_label.config(text="")
         self.log("🧹 Logs cleared. Ready for next operation.")
 
 
-# ------------------------------------------------------------
-# Run the App
-# ------------------------------------------------------------
+
 if __name__ == "__main__":
     root = tk.Tk()
     style = ttk.Style()
