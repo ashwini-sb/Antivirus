@@ -14,7 +14,7 @@ class AntivirusGUI:
         self.root.geometry("980x680")
         self.root.configure(bg="#0a0f1f")
 
-        # Mock virus database
+        
         self.virus_db = {
             "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": "Generic.Trojan",
             "5d41402abc4b2a76b9719d911017c592": "EICAR.Test.Virus",
